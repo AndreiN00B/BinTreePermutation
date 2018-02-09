@@ -79,20 +79,3 @@ def search(subtree, value):
         return True
     else:
         return search(subtree.l_child, value) or search(subtree.r_child, value)
-
-
-T = BST(5)
-T.insert(6)
-T.insert(8)
-T.insert(7)
-T.insert(9)
-T.insert(2)
-T.insert(3)
-T.insert(4)
-T.insert(1)
-print(height(T))
-print(_miniValue(T))
-print(_maxiValue(T))
-print(search(T, 5))
-print(search(T, 1))
-print(search(T, 0))
