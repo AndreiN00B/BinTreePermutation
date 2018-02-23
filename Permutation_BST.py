@@ -1,6 +1,8 @@
 from __future__ import print_function
 from BST import BST
 from BST import size
+from Node_Linked_List import LinkedList
+from Node_Linked_List import Node
 
 
 def inOrderTrav(_BT):
@@ -13,24 +15,17 @@ def inOrderTrav(_BT):
             yield er
 
 
-def Permutation(_BT, size1):
-    # TODO: add code here
-    if((_BT is not None) and (size1 != size(BT))):
-        Permutation(_BT.l_child, size1)
-        for index in range(size1):
-            if index is 0:
-                print(_BT.node, end='')
-            for inx in range(size(BT)):
-                if inOrderTrav(_BT) is not _BT.node:
-                    print(inOrderTrav(_BT), end='')
-        print()
-        Permutation(_BT.r_child, size1)
+def Permutation(_BT, _size):
+    global BT
+    if(_BT is not None and _size < size(BT)):
+        Permutation(_BT.l_child, _size)
+        # TODO: add code here
+        Permutation(_BT.r_child, _size)
 
 
 BT = BST(1)
 BT.insert(2)
 BT.insert(3)
 BT.insert(4)
-BT.insert(5)
 for i in range(size(BT)):
-    Permutation(BT, i)
+    Permutation(BT, i, BT)
