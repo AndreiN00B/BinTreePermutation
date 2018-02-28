@@ -24,10 +24,29 @@ class LinkedList:
                 return True
             _next = _next.next
         return False
-    def remove(self,item):
-        data = self.head
-        prev_data = self.head
-        while data != None:
-            if data.data == item:
-                prev_data.next = data.next
-            prev_data, data = data, data.next
+    def remove(self, item = None):
+        if item is None:
+            data = self.head
+            prev_data = self.head
+            while data != None:
+                if data.next == item:
+                    prev_data.next = data.next
+                prev_data, data = data, data.next
+        else:
+            data = self.head
+            prev_data = self.head
+            while data != None:
+                if data.data == item:
+                    prev_data.next = data.next
+                prev_data, data = data, data.next
+    def output(self):
+        _node = self.head
+        try:
+            s = str(_node.data)
+            _next = _node.next
+            while _next is not None:
+                s += str(_next.data)
+                _next = _next.next
+            return s
+        except:
+            raise Exception("Linked List is Empty")
